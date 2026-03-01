@@ -1,0 +1,20 @@
+name: Playwright Scraper
+on: [push, workflow_dispatch]
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          
+      - name: Install dependencies
+        run: |
+          pip install playwright
+          playwright install chromium
+          
+      - name: 23f3001092@ds.study.iitm.ac.in
+        run: python scraper.py
